@@ -16,6 +16,7 @@ public class Profile {
     private String jobTitle;
     private String homeLocation;
     private String workLocation;
+    private String profilePicture;
     private String [] interests;
     private Date dateOfBirth;
     private int noOfGroups;
@@ -31,6 +32,7 @@ public class Profile {
         jobTitle = job;
         homeLocation = home;
         workLocation = work;
+        profilePicture = "default.png";
         dateOfBirth = dob;
         noOfGroups = 0;
         noOfConnections = 0;
@@ -82,6 +84,10 @@ public class Profile {
     public void setWorkLocation(String newWork){
         workLocation = newWork;
     }
+
+    public String getProfilePicture() {return profilePicture;}
+
+    public void setProfilePicture(String newPhoto) {profilePicture = newPhoto;}
 
     public String [] getInterests(){
         return interests;
