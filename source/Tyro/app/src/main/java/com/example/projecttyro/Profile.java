@@ -22,6 +22,11 @@ public class Profile {
     private int noOfGroups;
     private int noOfConnections;
     private Boolean carSharing;
+    private Boolean jobTitleHidden;
+    private Boolean homeLocationHidden;
+    private Boolean workLocationHidden;
+    private Boolean interestsHidden;
+    private Boolean carSharingHidden;
 
     //init profile, stores personal info that cant be empty, and sets other to standard
     public Profile(String name, String email, String password, String job, String home,
@@ -37,6 +42,11 @@ public class Profile {
         noOfGroups = 0;
         noOfConnections = 0;
         carSharing = true;
+        jobTitleHidden = false;
+        homeLocationHidden = false;
+        workLocationHidden = false;
+        interestsHidden = false;
+        carSharingHidden = false;
     }
 
     //following are get and set functions for each variable
@@ -133,5 +143,25 @@ public class Profile {
     public void setCarSharing(Boolean setStatus){
         carSharing = setStatus;
     }
+
+    public Boolean jobTitleIsHidden(){ return jobTitleHidden; }
+
+    public void setJobTitleHidden(Boolean trueOrFalse) { jobTitleHidden = trueOrFalse; }
+
+    public Boolean homeLocationIsHidden(){ return homeLocationHidden; }
+
+    public void setHomeLocationHidden(Boolean trueOrFalse) { homeLocationHidden = trueOrFalse; }
+
+    public Boolean workLocationIsHidden(){ return workLocationHidden; }
+
+    public void setWorkLocationHidden(Boolean trueOrFalse) { workLocationHidden = trueOrFalse; }
+
+    public Boolean interestsAreHidden(){ return interestsHidden; }
+
+    public void setInterestsHidden(Boolean trueOrFalse) { interestsHidden = trueOrFalse; }
+
+    public Boolean carSharingIsHidden(){ return carSharingHidden; }
+
+    public void setCarSharingHidden(Boolean trueOrFalse) { carSharingHidden = trueOrFalse; }
 
 }

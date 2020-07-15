@@ -81,4 +81,28 @@ public class ProfileTest {
         assertFalse(testingProfile.isCarSharing());
     }
 
+    @Test
+    public void testHidingVariables(){
+        testingProfile.setCarSharingHidden(false);
+        testingProfile.setHomeLocationHidden(false);
+        testingProfile.setWorkLocationHidden(false);
+        testingProfile.setInterestsHidden(false);
+        testingProfile.setJobTitleHidden(false);
+
+        assertFalse((testingProfile.carSharingIsHidden() || testingProfile.homeLocationIsHidden()
+                || testingProfile.jobTitleIsHidden() || testingProfile.interestsAreHidden() ||
+                testingProfile.workLocationIsHidden()));
+
+        testingProfile.setCarSharingHidden(true);
+        testingProfile.setHomeLocationHidden(true);
+        testingProfile.setWorkLocationHidden(true);
+        testingProfile.setInterestsHidden(true);
+        testingProfile.setJobTitleHidden(true);
+
+        assertTrue((testingProfile.carSharingIsHidden() && testingProfile.homeLocationIsHidden()
+                && testingProfile.jobTitleIsHidden() && testingProfile.interestsAreHidden() &&
+                testingProfile.workLocationIsHidden()));
+
+    }
+
 }
