@@ -5,4 +5,21 @@
     <string name="home">Home</string>
     <string name="profile">Profile</string>
     <string name="profilePicture">Profile Picture</string>
+    <string name="job_title">Job Title</string>
+    <string name="location">Location</string>
+    <string name="name">Name</string>
+    <string name="edit_profile">Edit Profile</string>
+    <string name="interests">Interests</string>
+    <string name="car_sharing">Car Sharing</string>
+    <string name="complete_profile">Complete Profile</string>
+    <string name="location">Location</string>
+    <string name="job_title">Job Title</string>
+    <string name="name">Name</string>
+    <string name="hide">Hide</string>
+    <string name="hide">Hide</string>
+    <string name="car_sharing">Car Sharing</string>
+    <string name="interests">Interests</string>
+    <string name="hide">Hide</string>
+    <string name="hide">Hide</string>
+    <string name="hide">Hide</string>
 </resources>
