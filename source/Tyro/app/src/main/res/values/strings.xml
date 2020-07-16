@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ProjectTyro</string>
+    <string name="groups">Groups</string>
+    <string name="car_sharing">Car Sharing</string>
+    <string name="home">Home</string>
+    <string name="profile">Profile</string>
+    <string name="profilePicture">Profile Picture</string>
 </resources>
