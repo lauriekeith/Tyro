@@ -1,14 +1,13 @@
 package com.example.projecttyro;
 
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
 
-import android.view.View;
+
+import java.util.Date;
 
 public class ProfileActivity extends AppCompatActivity {
 
@@ -16,17 +15,32 @@ public class ProfileActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        //sets up a dummy profile for testing, this will be removed during roll out
+        Profile testingProfile = new Profile("test profile", "test@barclays.com",
+                "1234", "tester", "knutsford",
+                "radbroke", new Date(1999, 9, 18));
+
+        //set up text view for name on the profile
+        TextView profileName = (TextView) findViewById(R.id.profileName);
+        //set that text to display the profile name
+        profileName.setText(testingProfile.getName());
+
+        //the above is copied below
+        TextView profileLocation = (TextView) findViewById(R.id.profileLocation);
+        profileLocation.setText(testingProfile.getHomeLocation());
+
+        TextView profileJobTitle = (TextView) findViewById(R.id.profileJobTitle);
+        profileJobTitle.setText(testingProfile.getJobTitle());
+
+        TextView profileWorkLocation = (TextView) findViewById(R.id.profileWorkLocation);
+        profileWorkLocation.setText(testingProfile.getWorkLocation());
+
+
+        //functionality to load profile picture
+       // ImageView profilePicture = (ImageView) findViewById(R.id.profilePicture);
+        //profilePicture.set
+
     }
 
 }
