@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class Profile {
 
+
     /*
     * empty variables to store the profile information
     * These will all be initialised by the constructor or by functions
