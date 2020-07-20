@@ -54,9 +54,11 @@ public class ProfileTest {
 
     @Test
     public void profilePictureChangeAndGetTest(){
+        assertFalse(testingProfile.hasUserSetProfilePicture());
         String newPicture = "picture.png";
         testingProfile.setProfilePicture(newPicture);
         assertEquals(newPicture, testingProfile.getProfilePicture());
+        assertTrue(testingProfile.hasUserSetProfilePicture());
     }
 
     @Test

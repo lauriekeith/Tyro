@@ -112,8 +112,12 @@ public class ProfileActivity extends AppCompatActivity {
 
         //functionality to load profile picture
         ImageView profilePicture = (ImageView) findViewById(R.id.profilePicture);
-        //will add image file here when one is made ----------------------------------------------
-        profilePicture.setImageBitmap(BitmapFactory.decodeFile("pathToImageFile"));
+        //if user has a custom profile picture
+        if(testingProfile.hasUserSetProfilePicture())
+            profilePicture.setImageBitmap(BitmapFactory.decodeFile(testingProfile.getProfilePicture()));
+        //else make the profile picture the default one
+        else
+            profilePicture.setImageResource(R.drawable.ic_default_profile_picture);
 
     }
 

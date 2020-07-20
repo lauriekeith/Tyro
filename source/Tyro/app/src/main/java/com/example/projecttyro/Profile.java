@@ -28,6 +28,7 @@ public class Profile {
     private Boolean workLocationHidden;
     private Boolean interestsHidden;
     private Boolean carSharingHidden;
+    private Boolean addedProfilePicture;
 
     //init profile, stores personal info that cant be empty, and sets other to standard
     public Profile(String name, String email, String password, String job, String home,
@@ -38,7 +39,7 @@ public class Profile {
         jobTitle = job;
         homeLocation = home;
         workLocation = work;
-        profilePicture = "default.png";
+        profilePicture = "default.png"; //this must be the PATH to the image
         dateOfBirth = dob;
         noOfGroups = 0;
         noOfConnections = 0;
@@ -48,6 +49,7 @@ public class Profile {
         workLocationHidden = false;
         interestsHidden = false;
         carSharingHidden = false;
+        addedProfilePicture = false;
     }
 
     //following are get and set functions for each variable
@@ -98,7 +100,12 @@ public class Profile {
 
     public String getProfilePicture() {return profilePicture;}
 
-    public void setProfilePicture(String newPhoto) {profilePicture = newPhoto;}
+    public Boolean hasUserSetProfilePicture(){return addedProfilePicture;}
+
+    public void setProfilePicture(String newPhoto) {
+        profilePicture = newPhoto;
+        addedProfilePicture = true;
+    }
 
     public String [] getInterests(){
         return interests;
