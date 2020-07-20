@@ -74,7 +74,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/interestsTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/interests"
@@ -85,7 +85,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/carSharingTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/car_sharing"

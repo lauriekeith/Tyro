@@ -2,6 +2,7 @@
     <string name="app_name">ProjectTyro</string>
     <string name="groups">Groups</string>
     <string name="car_sharing">Car Sharing</string>
+    <string name="car_sharingAnswer">Yes/No</string>
     <string name="home">Home</string>
     <string name="profile">Profile</string>
     <string name="profilePicture">Profile Picture</string>
@@ -10,6 +11,7 @@
     <string name="name">Name</string>
     <string name="edit_profile">Edit Profile</string>
     <string name="interests">Interests</string>
+    <string name="interestsBody">Interests will appear here</string>
     <string name="complete_profile">Complete Profile</string>
     <string name="hide">Hide</string>
 </resources>
