@@ -7,7 +7,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/profileJobTitle"
+        android:id="@+id/editJobTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/job_title"
@@ -44,7 +44,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <TextView
-        android:id="@+id/profileName"
+        android:id="@+id/editName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/name"

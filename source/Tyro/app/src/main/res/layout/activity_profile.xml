@@ -6,6 +6,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <Button
+        android:id="@+id/editProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="612dp"
+        android:background="#00AEEF"
+        android:ellipsize="none"
+        android:fontFamily="sans-serif"
+        android:text="@string/edit_profile"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textStyle="italic"
+        android:typeface="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:id="@+id/profileJobTitle"
         android:layout_width="wrap_content"
@@ -47,6 +64,7 @@
         android:id="@+id/profilePicture"
         android:layout_width="118dp"
         android:layout_height="115dp"
+        android:layout_marginTop="60dp"
         android:contentDescription="@string/profilePicture"
         app:layout_constraintBottom_toTopOf="@+id/profileName"
         app:layout_constraintEnd_toEndOf="parent"

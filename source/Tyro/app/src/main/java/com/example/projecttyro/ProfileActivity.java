@@ -1,7 +1,11 @@
 package com.example.projecttyro;
 
+import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.os.Parcelable;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,15 +16,25 @@ import java.util.Date;
 
 public class ProfileActivity extends AppCompatActivity {
 
+    //sets up a dummy profile for testing, this will be removed during roll out
+    protected Profile testingProfile = new Profile("test profile", "test@barclays.com",
+            "1234", "tester", "knutsford",
+            "radbroke", new Date(1999, 9, 18));
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
 
-        //sets up a dummy profile for testing, this will be removed during roll out
-        Profile testingProfile = new Profile("test profile", "test@barclays.com",
-                "1234", "tester", "knutsford",
-                "radbroke", new Date(1999, 9, 18));
+        Intent intent = getIntent();
+        if (intent.hasExtra("name")) {
+            testingProfile.setName(intent.getStringExtra("name"));
+            testingProfile.setHomeLocation(intent.getStringExtra("location"));
+            testingProfile.setHomeLocationHidden(intent.getBooleanExtra("locationVisible", false));
+            testingProfile.setJobTitle(intent.getStringExtra("jobTitle"));
+            testingProfile.setJobTitleHidden(intent.getBooleanExtra("jobTitleVisible", false));
+        }
 
         //set up text view for name on the profile
         TextView profileName = (TextView) findViewById(R.id.profileName);
@@ -29,6 +43,7 @@ public class ProfileActivity extends AppCompatActivity {
 
         //the following views are only available if not hidden
         TextView profileLocation = (TextView) findViewById(R.id.profileLocation);
+
         if (testingProfile.homeLocationIsHidden()){
             profileLocation.setText(" ");
         }
@@ -123,6 +138,16 @@ public class ProfileActivity extends AppCompatActivity {
         else
             profilePicture.setImageResource(R.drawable.ic_default_profile_picture);
 
+        Button editProfile = findViewById(R.id.editProfile);
+        editProfile.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, EditProfileActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
+    public Profile getTestingProfile() {
+        return testingProfile;
+    }
 }

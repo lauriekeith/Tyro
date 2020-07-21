@@ -2,10 +2,21 @@ package com.example.projecttyro;
 
 import java.util.Arrays;
 import java.util.Date;
+import java.util.Map;
 
+
+/* Note: implement Parcelable interface, allows Profile object to be exchanged between activities */
 public class Profile {
 
 
+    enum UserInfo {
+        NAME,
+        JOB_TITLE,
+        HOME_LOCATION,
+        WORK_LOCATION,
+        INTERESTS,
+        CAR_SHARING
+    }
     /*
     * empty variables to store the profile information
     * These will all be initialised by the constructor or by functions
@@ -13,7 +24,6 @@ public class Profile {
     * */
     private String nameOfUser;
     private String userEmail;
-    private String userPassword;
     private String jobTitle;
     private String homeLocation;
     private String workLocation;
@@ -23,6 +33,7 @@ public class Profile {
     private int noOfGroups;
     private int noOfConnections;
     private Boolean carSharing;
+    private Map<UserInfo, Boolean> visibilityPermissions;
     private Boolean jobTitleHidden;
     private Boolean homeLocationHidden;
     private Boolean workLocationHidden;
@@ -30,12 +41,29 @@ public class Profile {
     private Boolean carSharingHidden;
     private Boolean addedProfilePicture;
 
+    public Map<UserInfo, Boolean> getVisibilityPermissions() {
+        return visibilityPermissions;
+    }
+
+    public Profile(String nameOfUser, String jobTitle, String homeLocation, String[] interests,
+                   Boolean carSharing, Boolean jobTitleHidden, Boolean homeLocationHidden,
+                   Boolean interestsHidden, Boolean carSharingHidden) {
+        this.nameOfUser = nameOfUser;
+        this.jobTitle = jobTitle;
+        this.homeLocation = homeLocation;
+        this.interests = interests;
+        this.carSharing = carSharing;
+        this.jobTitleHidden = jobTitleHidden;
+        this.homeLocationHidden = homeLocationHidden;
+        this.interestsHidden = interestsHidden;
+        this.carSharingHidden = carSharingHidden;
+    }
+
     //init profile, stores personal info that cant be empty, and sets other to standard
     public Profile(String name, String email, String password, String job, String home,
                    String work, Date dob){
         nameOfUser = name;
         userEmail = email;
-        userPassword = password;
         jobTitle = job;
         homeLocation = home;
         workLocation = work;
@@ -69,10 +97,7 @@ public class Profile {
         userEmail = newEmail;
     }
 
-    //password doesn't have a get function as it will not be displayed and may lead to data breach
-    public void setNewPassword(String newPassword){
-        userPassword = newPassword;
-    }
+
 
     public String getJobTitle(){
         return jobTitle;
