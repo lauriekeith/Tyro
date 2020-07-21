@@ -63,28 +63,32 @@ public class ProfileActivity extends AppCompatActivity {
             String newLine = System.getProperty("line.separator");
 
             //switch to ensure no array out of bounds if the user has less than 4 interests
-            switch (testingProfile.getInterests().length){
-                case 0:
-                    interestsToShow = "No interests recorded";
-                    break;
-                case 1:
-                    interestsToShow = testingProfile.getInterests()[0] + newLine;
-                    break;
-                case 2:
-                    interestsToShow = testingProfile.getInterests()[0] + newLine
-                            + testingProfile.getInterests()[1] + newLine;
-                    break;
-                case 3:
-                    interestsToShow = testingProfile.getInterests()[0] + newLine
-                            + testingProfile.getInterests()[1] + newLine
-                            + testingProfile.getInterests()[2] + newLine;
-                    break;
-                default:
-                    interestsToShow = testingProfile.getInterests()[0] + newLine
-                            + testingProfile.getInterests()[1] + newLine
-                            + testingProfile.getInterests()[2] + newLine
-                            + testingProfile.getInterests()[3] + newLine;
-                    break;
+            if (testingProfile.getInterests() == null)
+                interestsToShow = "No interests recorded";
+            else {
+                switch (testingProfile.getInterests().length) {
+                    case 0:
+                        interestsToShow = "No interests recorded";
+                        break;
+                    case 1:
+                        interestsToShow = testingProfile.getInterests()[0] + newLine;
+                        break;
+                    case 2:
+                        interestsToShow = testingProfile.getInterests()[0] + newLine
+                                + testingProfile.getInterests()[1] + newLine;
+                        break;
+                    case 3:
+                        interestsToShow = testingProfile.getInterests()[0] + newLine
+                                + testingProfile.getInterests()[1] + newLine
+                                + testingProfile.getInterests()[2] + newLine;
+                        break;
+                    default:
+                        interestsToShow = testingProfile.getInterests()[0] + newLine
+                                + testingProfile.getInterests()[1] + newLine
+                                + testingProfile.getInterests()[2] + newLine
+                                + testingProfile.getInterests()[3] + newLine;
+                        break;
+                }
             }
             interestsBody.setText(interestsToShow);
             interestsTitle.setText("Interests");
