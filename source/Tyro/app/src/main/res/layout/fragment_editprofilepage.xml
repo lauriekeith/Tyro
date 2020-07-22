@@ -23,29 +23,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/carSharing"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/car_sharing"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.065"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.608" />
-
-    <TextView
-        android:id="@+id/editInterest"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/interests"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.061"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/profilePicture"
         android:layout_width="118dp"
@@ -63,6 +40,8 @@
         android:id="@+id/editJobTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:autofillHints=""
+        android:inputType="textShortMessage"
         android:text="@string/job_title"
         android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -73,7 +52,7 @@
         app:layout_constraintVertical_bias="0.312" />
 
     <EditText
-        android:id="@+id/editLocation"
+        android:id="@+id/editHomeLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/location"
@@ -83,7 +62,69 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.383" />
+        app:layout_constraintVertical_bias="0.383"
+        android:autofillHints="" />
+
+    <EditText
+        android:id="@+id/editWorkLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/location"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.46" />
+
+    <Switch
+        android:id="@+id/workLocationSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hide"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.752"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.451" />
+
+    <TextView
+        android:id="@+id/carSharing"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/car_sharing"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.693" />
+
+    <TextView
+        android:id="@+id/editInterest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/interests"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.061"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.574" />
+
+    <Switch
+        android:id="@+id/interestSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hide"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.282"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.575" />
 
     <EditText
         android:id="@+id/editCarSharing"
@@ -96,7 +137,19 @@
         app:layout_constraintHorizontal_bias="0.071"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.68" />
+        app:layout_constraintVertical_bias="0.768" />
+
+    <Switch
+        android:id="@+id/carSharingSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hide"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.701" />
 
     <EditText
         android:id="@+id/editName"
@@ -111,7 +164,7 @@
         app:layout_constraintVertical_bias="0.244" />
 
     <Switch
-        android:id="@+id/switch1"
+        android:id="@+id/nameSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hide"
@@ -123,7 +176,7 @@
         app:layout_constraintVertical_bias="0.24" />
 
     <Switch
-        android:id="@+id/switch2"
+        android:id="@+id/jobTitleSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hide"
@@ -135,7 +188,7 @@
         app:layout_constraintVertical_bias="0.306" />
 
     <Switch
-        android:id="@+id/switch3"
+        android:id="@+id/homeLocationSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hide"
@@ -146,26 +199,4 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.376" />
 
-    <Switch
-        android:id="@+id/switch4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hide"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.282"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Switch
-        android:id="@+id/switch5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hide"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.615" />
 </androidx.constraintlayout.widget.ConstraintLayout>
