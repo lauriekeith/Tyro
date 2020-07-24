@@ -24,7 +24,7 @@ public class Profile implements Parcelable {
             return new Profile[size];
         }
     };
-    private String[] interests;
+    private Interest[] interests;
     private Map<UserInfo, Boolean> hidingInfo = new HashMap<>();
     private String homeLocation;
     private String workLocation;
@@ -48,7 +48,7 @@ public class Profile implements Parcelable {
         jobTitle = in.readString();
         homeLocation = in.readString();
         workLocation = in.readString();
-        interests = in.createStringArray();
+        interests = in.();
         in.readMap(hidingInfo, UserInfo.class.getClassLoader());
         byte tmpCarSharing = in.readByte();
         carSharing = tmpCarSharing == 0 ? null : tmpCarSharing == 1;
@@ -56,7 +56,7 @@ public class Profile implements Parcelable {
         profilePicture = "default.png";
     }
     public Profile(String nameOfUser, String jobTitle, String homeLocation, String workLocation,
-                   String[] interests, Map<UserInfo, Boolean> hidingInfo, Boolean carSharing) {
+                   Interest[] interests, Map<UserInfo, Boolean> hidingInfo, Boolean carSharing) {
         this.nameOfUser = nameOfUser;
         this.jobTitle = jobTitle;
         this.homeLocation = homeLocation;
@@ -73,7 +73,7 @@ public class Profile implements Parcelable {
         this.jobTitle = jobTitle;
         this.homeLocation = homeLocation;
         this.workLocation = workLocation;
-        interests = new String[]{" "};
+        interests = new Interest[];
         profilePicture = "default.png"; //this must be the PATH to the image
         addedProfilePicture = false;
         carSharing = true;
@@ -152,8 +152,28 @@ public class Profile implements Parcelable {
         return addedProfilePicture;
     }
 
-    public String[] getInterests() {
+    public Interest[] getInterests() {
         return interests;
+    }
+
+    public void addInterest(Interest interstToBeAdded){
+        //check if user already has said interest
+        boolean notAdded = true;
+        for (Interest currentInterest: interests) {
+            if (interstToBeAdded.equals(currentInterest)){
+                notAdded = false;
+            }
+        }
+        //if the user doesnt have said interest
+        if (notAdded) {
+            //add interest to array
+            Interest newInterests[] = new Interest[interests.length + 1];
+            newInterests = interests.clone();
+            newInterests[newInterests.length - 1] = interstToBeAdded;
+            interests = newInterests;
+            //set in the interest that the user has it
+            interstToBeAdded.setUserToInterest(this);
+        }
     }
 
     public void setProfilePicture(String newPhoto) {
@@ -168,13 +188,6 @@ public class Profile implements Parcelable {
         WORK_LOCATION,
         INTERESTS,
         CAR_SHARING
-    }
-
-    //add interest to the interests array --- will probably change when interest tags implemented
-    public void addInterest(String interest){
-        interests = Arrays.copyOf(interests, interests.length + 1);
-        interests[interests.length - 1] = interest;
-
     }
 
     public Boolean isCarSharing(){
