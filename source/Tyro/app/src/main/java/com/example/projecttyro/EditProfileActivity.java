@@ -40,6 +40,11 @@ public class EditProfileActivity extends AppCompatActivity {
 
         Button button = findViewById(R.id.completeProfile);
 
+        // set up text view for connectionNumber on the profile
+        TextView connectionsNumber = (TextView) findViewById(R.id.noOfConnections);
+        // set that text to display the connection count
+        connectionsNumber.setText(Integer.toString(profile.getNumberOfConnections()));
+
         button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 Intent intent = new Intent(EditProfileActivity.this, ProfileActivity.class);
