@@ -11,8 +11,12 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import static com.example.projecttyro.Profile.UserInfo.CAR_SHARING;
@@ -46,7 +50,10 @@ public class EditProfileActivity extends AppCompatActivity {
 
                 String name = ((EditText) findViewById(R.id.editName)).getText().toString();
                 String jobTitle = ((EditText) findViewById(R.id.editJobTitle)).getText().toString();
-                String[] interest = new String[]{((TextView) findViewById(R.id.editInterest)).getText().toString()};
+                List<Interest> interests = new ArrayList<>();
+                Interest testInterest = new Interest("Empty Interest");
+                interests.add(testInterest);
+//                String[] interest = new String[]{((TextView) findViewById(R.id.editInterest)).getText().toString()};
                 String workLocation = ((EditText) findViewById(R.id.editWorkLocation)).getText().toString();
                 String homeLocation = ((EditText) findViewById(R.id.editHomeLocation)).getText().toString();
                 Boolean carSharing = ((EditText) findViewById(R.id.editCarSharing)).getText().toString().equals("Yes");
@@ -63,7 +70,7 @@ public class EditProfileActivity extends AppCompatActivity {
                 hidingInfo.put(CAR_SHARING, carSharingVisible);
                 hidingInfo.put(INTERESTS, interestsVisible);
 
-                Profile profile = new Profile(name, jobTitle, homeLocation, workLocation, interest, hidingInfo, carSharing);
+                Profile profile = new Profile(name, jobTitle, homeLocation, workLocation, interests, hidingInfo, carSharing);
                 intent.putExtra("profile", profile);
                 startActivity(intent);
             }
@@ -76,7 +83,8 @@ public class EditProfileActivity extends AppCompatActivity {
     private void populateProfileInfo(Profile profile) {
         ((TextView) findViewById(R.id.editName)).setText(profile.getName());
         ((TextView) findViewById(R.id.editJobTitle)).setText(profile.getJobTitle());
-        ((TextView) findViewById(R.id.editInterest)).setText(Arrays.toString(profile.getInterests()));
+        Interest test = new Interest("test Interest");
+        ((TextView) findViewById(R.id.editInterest)).setText(test.toString());
         ((TextView) findViewById(R.id.editWorkLocation)).setText(profile.getWorkLocation());
         ((TextView) findViewById(R.id.editHomeLocation)).setText(profile.getHomeLocation());
         ((TextView) findViewById(R.id.editCarSharing)).setText(profile.isCarSharing() ? "Yes" : "No");

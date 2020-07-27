@@ -4,7 +4,15 @@
     <string name="car_sharing">Car Sharing</string>
     <string name="car_sharingAnswer">Yes/No</string>
     <string name="home">Home</string>
+    <string name="no">No</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">LOGIN</string>
     <string name="profile">Profile</string>
+    <string name="back">Back</string>
+    <string name="register">Register</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="new_to_tyro">New To Tyro</string>
     <string name="profilePicture">Profile Picture</string>
     <string name="job_title">Job Title</string>
     <string name="location">Location</string>
