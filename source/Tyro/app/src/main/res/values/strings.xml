@@ -30,4 +30,6 @@
     <string name="second_fragment_label">Second Fragment Label</string>
     <string name="yes">Yes</string>
     <string name="title_activity_edit_profile">EditProfile</string>
+    <string name="connectionsTitle">CONNECTIONS</string>string>
+    <string name="noOfConnections">12</string>string>
 </resources>
