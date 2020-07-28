@@ -53,6 +53,7 @@ public class Profile implements Parcelable {
         homeLocation = in.readString();
         workLocation = in.readString();
         interests = in.createTypedArrayList(Interest.CREATOR);
+        connections = in.createTypedArrayList(Profile.CREATOR);
         in.readMap(hidingInfo, UserInfo.class.getClassLoader());
         byte tmpCarSharing = in.readByte();
         carSharing = tmpCarSharing == 0 ? null : tmpCarSharing == 1;
