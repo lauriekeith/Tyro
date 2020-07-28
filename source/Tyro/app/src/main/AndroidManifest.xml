@@ -32,6 +32,12 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
+        <activity
+            android:name=".InterestTagUsers"
+            android:label="@string/title_activity_interest_tag"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
 
     </application>
 

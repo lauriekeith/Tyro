@@ -25,6 +25,16 @@ public class ProfileActivity extends AppCompatActivity {
     // sets up a dummy profile for testing, this will be removed during roll out
     protected Profile testingProfile = new Profile("Sam", "Tester", "London", "Birmingham");
 
+    public void onClick(Button button, final Interest interest) {
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(ProfileActivity.this, InterestTagUsers.class);
+                intent.putExtra("interest", interest);
+                startActivity(intent);
+            }
+        });
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -65,6 +75,7 @@ public class ProfileActivity extends AppCompatActivity {
                 Button button = new Button(this);
                 button.setText(interest.toString());
                 linearLayout.addView(button);
+                onClick(button, interest);
 //                interest.setUserToInterest(testingProfile);
             }
             interestsTitle.setText("Interests");

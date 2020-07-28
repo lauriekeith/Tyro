@@ -6,6 +6,7 @@ import android.os.Parcelable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class Interest implements Comparable<Interest>, Parcelable {
 
@@ -53,8 +54,21 @@ public class Interest implements Comparable<Interest>, Parcelable {
     }
 
 
-    public boolean equals(Interest otherInterest){
-        return (name.equals(otherInterest.getName()) && peopleWithInterest.size() == otherInterest.getPeopleWithInterest().size());
+    @Override
+    public boolean equals(Object other){
+//        return (name.equals(otherInterest.getName()) && peopleWithInterest.size() == otherInterest.getPeopleWithInterest().size());
+        if (!(other instanceof Interest)) {
+            return false;
+        }
+        Interest otherInterest = (Interest) other;
+        return (name.equals(otherInterest.getName()));
+    }
+
+
+
+    @Override
+    public int hashCode() {
+        return name.hashCode();
     }
 
     @Override
