@@ -6,35 +6,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <ToggleButton
-        android:id="@+id/toggleButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="ToggleButton"
-        android:textOff="@string/no"
-        android:textOn="@string/yes"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="529dp" />
-
-    <Button
-        android:id="@+id/completeProfile"
-        android:layout_width="181dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="612dp"
-        android:background="@drawable/edit_text_border"
-        android:ellipsize="none"
-        android:fontFamily="sans-serif"
-        android:text="@string/complete_profile"
-        android:textAllCaps="true"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:typeface="normal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ImageView
         android:id="@+id/profilePicture"
         android:layout_width="118dp"
@@ -126,10 +97,83 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.065"
+        app:layout_constraintHorizontal_bias="0.064"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.693" />
+        app:layout_constraintVertical_bias="0.787" />
+
+    <EditText
+        android:id="@+id/editCarSharing"
+        android:layout_width="103dp"
+        android:layout_height="43dp"
+        android:text="@string/yes"
+        android:textSize="14sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.071"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.866" />
+
+    <ToggleButton
+        android:id="@+id/toggleButton2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="ToggleButton"
+        android:textOff="@string/no"
+        android:textOn="@string/yes"
+        tools:layout_editor_absoluteX="161dp"
+        tools:layout_editor_absoluteY="596dp" />
+
+    <Button
+        android:id="@+id/addInterest"
+        android:layout_width="106dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="424dp"
+        android:background="@drawable/edit_text_border"
+        android:ellipsize="none"
+        android:fontFamily="sans-serif"
+        android:text="@string/add_interest"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#FFFFFF"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.708"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/completeProfile"
+        android:layout_width="181dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="660dp"
+        android:background="@drawable/edit_text_border"
+        android:ellipsize="none"
+        android:fontFamily="sans-serif"
+        android:text="@string/complete_profile"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/carSharingSwitch"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/hide"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.419"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.791" />
 
     <Switch
         android:id="@+id/interestSwitch"
@@ -157,31 +201,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.606" />
-
-    <EditText
-        android:id="@+id/editCarSharing"
-        android:layout_width="103dp"
-        android:layout_height="43dp"
-        android:text="@string/yes"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.071"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.768" />
-
-    <Switch
-        android:id="@+id/carSharingSwitch"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hide"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.419"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.696" />
 
     <EditText
         android:id="@+id/editName"
@@ -220,5 +239,26 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.306" />
+
+    <ScrollView
+        android:id="@+id/interestViewHolder"
+        style="@android:style/Widget.DeviceDefault.ScrollView"
+        android:layout_width="353dp"
+        android:layout_height="76dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.275"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.712">
+
+        <LinearLayout
+            android:id="@+id/interestsHolder"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

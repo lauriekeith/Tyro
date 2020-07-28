@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.ScrollView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,11 +36,11 @@ public class ProfileActivity extends AppCompatActivity {
             testingProfile = intent.getParcelableExtra("profile");
         }
 
+
         // set up text view for name on the profile
         TextView profileName = (TextView) findViewById(R.id.profileName);
         // set that text to display the profile name
         profileName.setText(testingProfile.getName());
-
         // the following views are only available if not hidden
         TextView profileLocation = (TextView) findViewById(R.id.profileLocation);
         profileLocation.setText(
@@ -54,72 +56,20 @@ public class ProfileActivity extends AppCompatActivity {
                 testingProfile.isHidden(WORK_LOCATION) ? " " : testingProfile.getWorkLocation());
 
         TextView interestsTitle = (TextView) findViewById(R.id.interestsTitle);
-        TextView interestsBody = (TextView) findViewById(R.id.interestsBody);
 
-        if (testingProfile.isHidden(INTERESTS)) {
-            interestsBody.setText(" ");
-            interestsTitle.setText(" ");
-        }
-        // if the user has interests, the first 4 will be displayed (if they have this many) - the
-        // rest will be displayed in a "more" pop up, this will be added later
-        else {
-            // string to store the interests
-            StringBuilder interestsToShow = new StringBuilder();
-            // gets the new line operator for the given system
-            String newLine = System.getProperty("line.separator");
-
-            // switch to ensure no array out of bounds if the user has less than 4 interests
-            List<Interest> interests = testingProfile.getInterests();
-
-            if (interests == null) {
-                interestsToShow = new StringBuilder("No interests recorded");
+        List<Interest> interests = testingProfile.getInterests();
+        if (!testingProfile.isHidden(INTERESTS)) {
+            ScrollView scrollView = findViewById(R.id.interestScrollView);
+            LinearLayout linearLayout = findViewById(R.id.interestLayoutView);
+            for (Interest interest: interests) {
+                Button button = new Button(this);
+                button.setText(interest.toString());
+                linearLayout.addView(button);
+//                interest.setUserToInterest(testingProfile);
             }
-            else {
-
-                for (Interest interest: interests) {
-                    interestsToShow.append(interest);
-                    interestsToShow.append(newLine);
-                }
-
-//                switch (testingProfile.getInterests().length) {
-//                    case 0:
-//                        interestsToShow = "No interests recorded";
-//                        break;
-//                    case 1:
-//                        interestsToShow = testingProfile.getInterests()[0] + newLine;
-//                        break;
-//                    case 2:
-//                        interestsToShow =
-//                                testingProfile.getInterests()[0]
-//                                        + newLine
-//                                        + testingProfile.getInterests()[1]
-//                                        + newLine;
-//                        break;
-//                    case 3:
-//                        interestsToShow =
-//                                testingProfile.getInterests()[0]
-//                                        + newLine
-//                                        + testingProfile.getInterests()[1]
-//                                        + newLine
-//                                        + testingProfile.getInterests()[2]
-//                                        + newLine;
-//                        break;
-//                    default:
-//                        interestsToShow =
-//                                testingProfile.getInterests()[0]
-//                                        + newLine
-//                                        + testingProfile.getInterests()[1]
-//                                        + newLine
-//                                        + testingProfile.getInterests()[2]
-//                                        + newLine
-//                                        + testingProfile.getInterests()[3]
-//                                        + newLine;
-//                        break;
-//                }
-            }
-            interestsBody.setText(interestsToShow.toString());
             interestsTitle.setText("Interests");
         }
+
 
         // logic to display if the user is willing to car share
         TextView carSharingTitle = (TextView) findViewById(R.id.carSharingTitle);

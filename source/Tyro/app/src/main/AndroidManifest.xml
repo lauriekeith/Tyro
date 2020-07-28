@@ -26,6 +26,12 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
+        <activity
+            android:name=".InterestPopup"
+            android:label="@string/title_activity_interest_popup"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
 
     </application>
 

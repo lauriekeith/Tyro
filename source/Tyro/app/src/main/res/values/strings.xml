@@ -11,6 +11,7 @@
     <string name="profile">Profile</string>
     <string name="back">Back</string>
     <string name="register">Register</string>
+    <string name="add_interest">Add Interest</string>
     <string name="confirm_password">Confirm Password</string>
     <string name="new_to_tyro">New To Tyro</string>
     <string name="profilePicture">Profile Picture</string>
@@ -30,4 +31,5 @@
     <string name="second_fragment_label">Second Fragment Label</string>
     <string name="yes">Yes</string>
     <string name="title_activity_edit_profile">EditProfile</string>
+    <string name="title_activity_interest_popup">Interest Popup</string>
 </resources>

@@ -6,24 +6,26 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/editProfile"
-        android:layout_width="138dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="612dp"
-        android:background="@drawable/edit_text_border"
-        android:ellipsize="none"
-        android:fontFamily="sans-serif"
-        android:text="@string/edit_profile"
-        android:textAllCaps="true"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:typeface="normal"
+    <ScrollView
+        android:id="@+id/interestScrollView"
+        style="@android:style/Widget.DeviceDefault.ScrollView"
+        android:layout_width="353dp"
+        android:layout_height="76dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.275"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.629">
+
+        <LinearLayout
+            android:id="@+id/interestLayoutView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+        </LinearLayout>
+    </ScrollView>
 
     <TextView
         android:id="@+id/profileJobTitle"
@@ -123,10 +125,10 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
+        app:layout_constraintHorizontal_bias="0.098"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.683" />
+        app:layout_constraintVertical_bias="0.763" />
 
     <TextView
         android:id="@+id/carSharingBody"
@@ -138,19 +140,7 @@
         app:layout_constraintHorizontal_bias="0.101"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.752" />
-
-    <TextView
-        android:id="@+id/interestsBody"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/interestsBody"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.134"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.585" />
+        app:layout_constraintVertical_bias="0.831" />
 
     <Button
         android:id="@+id/carSharingStatus"
@@ -158,6 +148,25 @@
         android:layout_height="wrap_content"
         android:text="@string/yes"
         tools:layout_editor_absoluteX="104dp"
-        tools:layout_editor_absoluteY="523dp" />
+        tools:layout_editor_absoluteY="580dp" />
+
+    <Button
+        android:id="@+id/editProfile"
+        android:layout_width="138dp"
+        android:layout_height="49dp"
+        android:layout_marginTop="668dp"
+        android:background="@drawable/edit_text_border"
+        android:ellipsize="none"
+        android:fontFamily="sans-serif"
+        android:text="@string/edit_profile"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

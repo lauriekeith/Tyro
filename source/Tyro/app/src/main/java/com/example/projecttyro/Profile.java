@@ -26,7 +26,7 @@ public class Profile implements Parcelable {
             return new Profile[size];
         }
     };
-    private List<Interest> interests;
+    private List<Interest> interests = new ArrayList<>();
     private Map<UserInfo, Boolean> hidingInfo = new HashMap<>();
     private String homeLocation;
     private String workLocation;
@@ -50,7 +50,8 @@ public class Profile implements Parcelable {
         jobTitle = in.readString();
         homeLocation = in.readString();
         workLocation = in.readString();
-        interests = in.createTypedArrayList(Interest.CREATOR);
+        interests = new ArrayList<>();
+        in.readTypedList(interests, Interest.CREATOR);
         in.readMap(hidingInfo, UserInfo.class.getClassLoader());
         byte tmpCarSharing = in.readByte();
         carSharing = tmpCarSharing == 0 ? null : tmpCarSharing == 1;

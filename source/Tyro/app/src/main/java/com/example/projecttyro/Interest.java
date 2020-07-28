@@ -3,22 +3,23 @@ package com.example.projecttyro;
 import android.os.Parcel;
 import android.os.Parcelable;
 
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class Interest implements Comparable<Interest>, Parcelable {
 
     private String name;
-    private List<Profile> peopleWithInterest;
+    private List<Profile> peopleWithInterest = new ArrayList<>();
 
     public Interest(String nameOfInterest){
         name = nameOfInterest;
-        peopleWithInterest = new ArrayList<>();
     }
 
     protected Interest(Parcel in) {
         name = in.readString();
-        peopleWithInterest = in.createTypedArrayList(Profile.CREATOR);
+        peopleWithInterest = new ArrayList<>();
+        in.readTypedList(peopleWithInterest, Profile.CREATOR);
     }
 
     public static final Creator<Interest> CREATOR = new Creator<Interest>() {
@@ -34,6 +35,12 @@ public class Interest implements Comparable<Interest>, Parcelable {
     };
 
     public String getName(){
+        return name;
+    }
+
+
+    @Override
+    public String toString() {
         return name;
     }
 
