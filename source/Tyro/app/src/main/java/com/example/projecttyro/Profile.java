@@ -157,9 +157,14 @@ public class Profile implements Parcelable {
         otherUser.removeConnection(this);
     }
 
+    public boolean hasConnection(Profile otherUser){
+
+        return connections.contains(otherUser);
+    }
+
     //adds connection to the arraylist and increments numberOfConnections if the connection isnt already there
     public void addConnection(Profile otherUser){
-        if (!connections.contains(otherUser)) {
+        if (!hasConnection(otherUser)) {
             connections.add(numberOfConnections, otherUser);
             numberOfConnections++;
         }
@@ -167,7 +172,7 @@ public class Profile implements Parcelable {
 
     //removes connection from the arraylist and decrements numberOfConnections if the connection exists
     public void removeConnection(Profile otherUser){
-        if (numberOfConnections > 0 && connections.contains(otherUser)) {
+        if (numberOfConnections > 0 && hasConnection(otherUser)) {
             numberOfConnections--;
             connections.remove(otherUser);
         }
