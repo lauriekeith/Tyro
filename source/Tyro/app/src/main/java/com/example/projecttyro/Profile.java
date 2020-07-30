@@ -26,7 +26,12 @@ public class Profile implements Parcelable {
             return new Profile[size];
         }
     };
+<<<<<<< HEAD
     private List<Interest> interests = new ArrayList<>();
+=======
+    private List<Interest> interests;
+    private List<Profile> connections;
+>>>>>>> origin/connections
     private Map<UserInfo, Boolean> hidingInfo = new HashMap<>();
     private String homeLocation;
     private String workLocation;
@@ -43,6 +48,7 @@ public class Profile implements Parcelable {
     private String jobTitle;
     private String profilePicture;
     private Boolean carSharing;
+    private int numberOfConnections;
 
     /* How a profile object is created when it is exchanged between activities */
     protected Profile(Parcel in) {
@@ -50,8 +56,13 @@ public class Profile implements Parcelable {
         jobTitle = in.readString();
         homeLocation = in.readString();
         workLocation = in.readString();
+<<<<<<< HEAD
         interests = new ArrayList<>();
         in.readTypedList(interests, Interest.CREATOR);
+=======
+        interests = in.createTypedArrayList(Interest.CREATOR);
+        connections = in.createTypedArrayList(Profile.CREATOR);
+>>>>>>> origin/connections
         in.readMap(hidingInfo, UserInfo.class.getClassLoader());
         byte tmpCarSharing = in.readByte();
         carSharing = tmpCarSharing == 0 ? null : tmpCarSharing == 1;
@@ -69,6 +80,8 @@ public class Profile implements Parcelable {
         this.carSharing = carSharing;
         profilePicture = "default.png";
         addedProfilePicture = false;
+        numberOfConnections = 0;
+        connections = new ArrayList<Profile>();
     }
     public Profile(String nameOfUser, String jobTitle, String homeLocation, String workLocation) {
 
@@ -80,6 +93,8 @@ public class Profile implements Parcelable {
         profilePicture = "default.png"; //this must be the PATH to the image
         addedProfilePicture = false;
         carSharing = true;
+        numberOfConnections = 0;
+        connections = new ArrayList<Profile>();
         hidingInfo = getDefaultPermissions();
     }
 
@@ -133,6 +148,44 @@ public class Profile implements Parcelable {
 
     public void setJobTitle(String newTitle){
         jobTitle = newTitle;
+    }
+
+    public int getNumberOfConnections(){
+        return numberOfConnections;
+    }
+
+    //connects both users on both ends in one call
+    public void connect(Profile otherUser){
+        addConnection(otherUser);
+        otherUser.addConnection(this);
+    }
+
+    //disconnects both users on both ends in one call
+    public void disconnect(Profile otherUser){
+        removeConnection(otherUser);
+        otherUser.removeConnection(this);
+    }
+
+    public boolean hasConnection(Profile otherUser){
+
+        return connections.contains(otherUser);
+    }
+
+    //adds connection to the arraylist and increments numberOfConnections if the connection isnt already there
+    public void addConnection(Profile otherUser){
+        if (!hasConnection(otherUser)) {
+            connections.add(numberOfConnections, otherUser);
+            numberOfConnections++;
+        }
+    }
+
+    //removes connection from the arraylist and decrements numberOfConnections if the connection exists
+    public void removeConnection(Profile otherUser){
+        if (numberOfConnections > 0 && hasConnection(otherUser)) {
+            numberOfConnections--;
+            connections.remove(otherUser);
+        }
+        //else do nothing
     }
 
     public String getHomeLocation(){

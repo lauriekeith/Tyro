@@ -5,63 +5,39 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-
-    <ScrollView
-        android:id="@+id/interestScrollView"
-        style="@android:style/Widget.DeviceDefault.ScrollView"
-        android:layout_width="376dp"
-        android:layout_height="169dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <Button
+        android:id="@+id/makeConnection"
+        android:layout_width="122dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/edit_text_border"
+        android:ellipsize="none"
+        android:fontFamily="sans-serif"
+        android:text="@string/connect"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:typeface="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.171"
+        app:layout_constraintHorizontal_bias="0.05"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.685">
-
-        <LinearLayout
-            android:id="@+id/interestLayoutView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-        </LinearLayout>
-    </ScrollView>
-
-    <ImageView
-        android:id="@+id/profilePicture"
-        android:layout_width="118dp"
-        android:layout_height="115dp"
-        android:layout_marginTop="60dp"
-        android:contentDescription="@string/profilePicture"
-        app:layout_constraintBottom_toTopOf="@+id/profileName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/interestsTitle"
+        android:id="@+id/profileJobTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/interests"
+        android:text="@string/job_title"
         android:textAllCaps="true"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-<<<<<<< HEAD
-        app:layout_constraintHorizontal_bias="0.094"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.499" />
-=======
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.34" />
->>>>>>> origin/connections
 
     <TextView
         android:id="@+id/profileLocation"
@@ -76,17 +52,13 @@
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-<<<<<<< HEAD
-        app:layout_constraintVertical_bias="0.386" />
-=======
         app:layout_constraintVertical_bias="0.397" />
->>>>>>> origin/connections
 
     <TextView
-        android:id="@+id/profileJobTitle"
+        android:id="@+id/profileWorkLocation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/job_title"
+        android:text="@string/location"
         android:textAllCaps="true"
         android:textSize="18sp"
         android:textStyle="bold"
@@ -95,9 +67,6 @@
         app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-<<<<<<< HEAD
-        app:layout_constraintVertical_bias="0.332" />
-=======
         app:layout_constraintVertical_bias="0.452"
         tools:text="workLocation" />
 
@@ -115,30 +84,6 @@
         app:layout_constraintVertical_bias="0.264"
         tools:srcCompat="@tools:sample/avatars" />
 
->>>>>>> origin/connections
-
-    <TextView
-        android:id="@+id/profileWorkLocation"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/location"
-        android:textAllCaps="true"
-        android:textSize="18sp"
-        android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-<<<<<<< HEAD
-        app:layout_constraintHorizontal_bias="0.501"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.442"
-        tools:text="workLocation" />
-=======
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.288" />
->>>>>>> origin/connections
 
     <TextView
         android:id="@+id/profileName"
@@ -150,12 +95,21 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-<<<<<<< HEAD
-        app:layout_constraintHorizontal_bias="0.501"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.277" />
-=======
+        app:layout_constraintVertical_bias="0.288" />
+
+    <TextView
+        android:id="@+id/interestsTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/interests"
+        android:textAllCaps="true"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.106"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -175,7 +129,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.499" />
->>>>>>> origin/connections
 
     <TextView
         android:id="@+id/carSharingTitle"
@@ -187,56 +140,32 @@
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-<<<<<<< HEAD
-        app:layout_constraintHorizontal_bias="0.098"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.797" />
-=======
         app:layout_constraintHorizontal_bias="0.115"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.724" />
->>>>>>> origin/connections
 
-    <Button
-        android:id="@+id/carSharingStatus"
+    <TextView
+        android:id="@+id/carSharingBody"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/yes"
+        android:text="@string/car_sharingAnswer"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-<<<<<<< HEAD
-        app:layout_constraintHorizontal_bias="0.092"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.879" />
-=======
         app:layout_constraintHorizontal_bias="0.093"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.796" />
->>>>>>> origin/connections
 
-    <Button
-        android:id="@+id/editProfile"
-        android:layout_width="138dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="668dp"
-        android:background="@drawable/edit_text_border"
-        android:ellipsize="none"
-        android:fontFamily="sans-serif"
-        android:text="@string/edit_profile"
-        android:textAllCaps="true"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:typeface="normal"
+    <TextView
+        android:id="@+id/interestsBody"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/interestsBody"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.134"
         app:layout_constraintStart_toStartOf="parent"
-<<<<<<< HEAD
-=======
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.658" />
 
@@ -266,7 +195,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
->>>>>>> origin/connections
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
