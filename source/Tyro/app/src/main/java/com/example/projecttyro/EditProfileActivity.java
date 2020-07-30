@@ -9,6 +9,7 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.ToggleButton;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -99,7 +100,8 @@ public class EditProfileActivity extends AppCompatActivity {
 //                String[] interest = new String[]{((TextView) findViewById(R.id.editInterest)).getText().toString()};
                 String workLocation = ((EditText) findViewById(R.id.editWorkLocation)).getText().toString();
                 String homeLocation = ((EditText) findViewById(R.id.editHomeLocation)).getText().toString();
-                Boolean carSharing = ((EditText) findViewById(R.id.editCarSharing)).getText().toString().equals("Yes");
+                Boolean carSharing = ( (ToggleButton) findViewById(R.id.carSharingStatus)).isChecked();
+
 
                 Boolean jobVisible = ((Switch) findViewById(R.id.jobTitleSwitch)).isChecked();
                 Boolean homeLocationVisible = ((Switch) findViewById(R.id.homeLocationSwitch)).isChecked();
@@ -137,7 +139,7 @@ public class EditProfileActivity extends AppCompatActivity {
 //        ((TextView) findViewById(R.id.editInterest)).setText(interests.size() > 0 ? interests.get(0).toString() : test.toString());
         ((TextView) findViewById(R.id.editWorkLocation)).setText(profile.getWorkLocation());
         ((TextView) findViewById(R.id.editHomeLocation)).setText(profile.getHomeLocation());
-        ((TextView) findViewById(R.id.editCarSharing)).setText(profile.isCarSharing() ? "Yes" : "No");
+        ((ToggleButton) findViewById(R.id.carSharingStatus)).setChecked(profile.isCarSharing());
     }
 
 

@@ -84,19 +84,22 @@ public class ProfileActivity extends AppCompatActivity {
 
         // logic to display if the user is willing to car share
         TextView carSharingTitle = (TextView) findViewById(R.id.carSharingTitle);
-        TextView carSharingBody = (TextView) findViewById(R.id.carSharingBody);
+        Button carSharingStatus = findViewById(R.id.carSharingStatus);
         // hides the possibility if checked
         if (testingProfile.isHidden(CAR_SHARING)) {
-            carSharingTitle.setText(" ");
-            carSharingBody.setText(" ");
+            carSharingTitle.setVisibility(View.GONE);
+            carSharingStatus.setVisibility(View.GONE);
         }
         // if not hidden
         else {
+            carSharingTitle.setVisibility(View.VISIBLE);
+            carSharingStatus.setVisibility(View.VISIBLE);
             // display title
             carSharingTitle.setText("Car Sharing");
             // display yes or no
-            if (!testingProfile.isHidden(CAR_SHARING)) carSharingBody.setText("Yes");
-            else carSharingBody.setText("No");
+            carSharingStatus.setText(testingProfile.isCarSharing() ? "Yes" : "No");
+//            if (!testingProfile.isHidden(CAR_SHARING)) carSharingBody.setText("Yes");
+//            else carSharingBody.setText("No");
         }
 
         // functionality to load profile picture

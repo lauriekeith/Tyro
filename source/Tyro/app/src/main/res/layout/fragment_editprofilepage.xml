@@ -102,28 +102,19 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.787" />
 
-    <EditText
-        android:id="@+id/editCarSharing"
-        android:layout_width="103dp"
-        android:layout_height="43dp"
-        android:text="@string/yes"
-        android:textSize="14sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.071"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.866" />
-
     <ToggleButton
-        android:id="@+id/toggleButton2"
+        android:id="@+id/carSharingStatus"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="ToggleButton"
         android:textOff="@string/no"
         android:textOn="@string/yes"
-        tools:layout_editor_absoluteX="161dp"
-        tools:layout_editor_absoluteY="596dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.058"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.874" />
 
     <Button
         android:id="@+id/addInterest"
