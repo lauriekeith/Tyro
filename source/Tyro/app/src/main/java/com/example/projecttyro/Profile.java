@@ -26,12 +26,9 @@ public class Profile implements Parcelable {
             return new Profile[size];
         }
     };
-<<<<<<< HEAD
+
     private List<Interest> interests = new ArrayList<>();
-=======
-    private List<Interest> interests;
     private List<Profile> connections;
->>>>>>> origin/connections
     private Map<UserInfo, Boolean> hidingInfo = new HashMap<>();
     private String homeLocation;
     private String workLocation;
@@ -56,13 +53,10 @@ public class Profile implements Parcelable {
         jobTitle = in.readString();
         homeLocation = in.readString();
         workLocation = in.readString();
-<<<<<<< HEAD
         interests = new ArrayList<>();
         in.readTypedList(interests, Interest.CREATOR);
-=======
-        interests = in.createTypedArrayList(Interest.CREATOR);
-        connections = in.createTypedArrayList(Profile.CREATOR);
->>>>>>> origin/connections
+        connections = new ArrayList<>();
+        in.readTypedList(connections, Profile.CREATOR);
         in.readMap(hidingInfo, UserInfo.class.getClassLoader());
         byte tmpCarSharing = in.readByte();
         carSharing = tmpCarSharing == 0 ? null : tmpCarSharing == 1;
@@ -111,6 +105,7 @@ public class Profile implements Parcelable {
         parcel.writeString(homeLocation);
         parcel.writeString(workLocation);
         parcel.writeTypedList(interests);
+        parcel.writeTypedList(connections);
         parcel.writeMap(hidingInfo);
         parcel.writeByte((byte) (carSharing == null ? 0 : carSharing ? 1 : 2));
     }

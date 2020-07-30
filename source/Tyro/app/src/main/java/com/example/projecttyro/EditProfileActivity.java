@@ -45,7 +45,7 @@ public class EditProfileActivity extends AppCompatActivity {
         getPermissionInfo(profile);
 
         onAddingInterest();
-        onCompleteProfile();
+        onCompleteProfile(profile);
 
     }
 
@@ -81,7 +81,7 @@ public class EditProfileActivity extends AppCompatActivity {
         });
     }
 
-    public void onCompleteProfile() {
+    public void onCompleteProfile(Profile profile) {
         Button button = findViewById(R.id.completeProfile);
 
         // set up text view for connectionNumber on the profile

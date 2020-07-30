@@ -9,14 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
+
         <activity
             android:name=".OtherUserProfile"
             android:label="@string/title_activity_other_user_profile"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            <action android:name="android.intent.action.MAIN" />
+            </intent-filter>
+        </activity>
 
-<<<<<<< HEAD
 
         <activity
             android:name=".LoginPage"
@@ -28,30 +30,17 @@
             </intent-filter>
         </activity>
 
+
         <activity
         android:name=".ProfileActivity"
         android:label="@string/title_activity_profile"
         android:theme="@style/AppTheme.NoActionBar">
-<!--        <intent-filter>-->
-<!--            <action android:name="android.intent.action.MAIN" />-->
-<!--            <category android:name="android.intent.category.LAUNCHER" />-->
-<!--        </intent-filter>-->
-    </activity>
-=======
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
-        <activity
-            android:name=".ProfileActivity"
-            android:label="@string/title_activity_profile"
-            android:theme="@style/AppTheme.NoActionBar">
->>>>>>> origin/connections
 
-        </activity>
+
         <activity
             android:name=".EditProfileActivity"
             android:label="@string/title_activity_edit_profile"
-<<<<<<< HEAD
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
@@ -67,10 +56,6 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
-
-=======
-            android:theme="@style/AppTheme.NoActionBar"></activity>
->>>>>>> origin/connections
     </application>
 
 </manifest>

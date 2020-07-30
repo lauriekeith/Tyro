@@ -51,8 +51,7 @@ public class ProfileActivity extends AppCompatActivity {
         TextView profileName = (TextView) findViewById(R.id.profileName);
         // set that text to display the profile name
         profileName.setText(testingProfile.getName());
-<<<<<<< HEAD
-=======
+
 
         // set up text view for connectionNumber on the profile
         TextView connectionsNumber = (TextView) findViewById(R.id.noOfConnections);
@@ -60,7 +59,6 @@ public class ProfileActivity extends AppCompatActivity {
         connectionsNumber.setText(Integer.toString(testingProfile.getNumberOfConnections()));
 
 
->>>>>>> origin/connections
         // the following views are only available if not hidden
         TextView profileLocation = (TextView) findViewById(R.id.profileLocation);
         profileLocation.setText(

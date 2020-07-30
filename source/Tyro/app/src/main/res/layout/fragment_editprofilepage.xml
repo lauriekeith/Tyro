@@ -5,31 +5,11 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-<<<<<<< HEAD
-=======
-    <ToggleButton
-        android:id="@+id/toggleButton2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="161dp"
-        android:layout_marginLeft="161dp"
-        android:layout_marginTop="529dp"
-        android:layout_marginEnd="162dp"
-        android:layout_marginRight="162dp"
-        android:layout_marginBottom="154dp"
-        android:text="ToggleButton"
-        android:textOff="@string/no"
-        android:textOn="@string/yes"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/completeProfile"
         android:layout_width="181dp"
         android:layout_height="49dp"
-        android:layout_marginTop="612dp"
+        android:layout_marginTop="644dp"
         android:background="@drawable/edit_text_border"
         android:ellipsize="none"
         android:fontFamily="sans-serif"
@@ -40,11 +20,9 @@
         android:textStyle="bold"
         android:typeface="normal"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
->>>>>>> origin/connections
     <ImageView
         android:id="@+id/profilePicture"
         android:layout_width="118dp"
@@ -200,24 +178,6 @@
         android:typeface="normal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.708"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/completeProfile"
-        android:layout_width="181dp"
-        android:layout_height="49dp"
-        android:layout_marginTop="660dp"
-        android:background="@drawable/edit_text_border"
-        android:ellipsize="none"
-        android:fontFamily="sans-serif"
-        android:text="@string/complete_profile"
-        android:textAllCaps="true"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="#FFFFFF"
-        android:textStyle="bold"
-        android:typeface="normal"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
