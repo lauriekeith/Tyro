@@ -155,6 +155,20 @@ public class OtherUserProfile extends AppCompatActivity {
         else profilePicture.setImageResource(R.drawable.ic_default_profile_picture);
 
         final Button makeConnection = findViewById(R.id.makeConnection);
+
+        //if user has a connection
+        if (userProfile.hasConnection(testingProfile)){
+            makeConnection.setText("Disconnect");
+
+        }
+        //else if requested say this
+        else if (testingProfile.hasRequestFrom(userProfile)){
+            makeConnection.setText("Requested");
+        }
+        //else say connect
+        else{
+            makeConnection.setText("Connect");
+        }
         makeConnection.setOnClickListener(
                 new View.OnClickListener() {
                     public void onClick(View v) {
@@ -165,10 +179,15 @@ public class OtherUserProfile extends AppCompatActivity {
                             makeConnection.setText("Connect");
 
                         }
+                        //else if requested and pressed, remove request
+                        else if (testingProfile.hasRequestFrom(userProfile)){
+                            testingProfile.declineRequest(userProfile);
+                            makeConnection.setText("Connect");
+                        }
                         //else make connection
                         else{
-                            userProfile.connect(testingProfile);
-                            makeConnection.setText("Disconnect");
+                            userProfile.requestToConnect(testingProfile);
+                            makeConnection.setText("Requested");
                         }
                         connectionsNumber.setText(Integer.toString(testingProfile.getNumberOfConnections()));
                     }
