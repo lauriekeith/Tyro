@@ -15,12 +15,14 @@ public class Interest implements Comparable<Interest>, Parcelable {
 
     public Interest(String nameOfInterest){
         name = nameOfInterest;
+        InterestStore.getInstance().getInterestList().add(this);
     }
 
     protected Interest(Parcel in) {
         name = in.readString();
         peopleWithInterest = new ArrayList<>();
         in.readTypedList(peopleWithInterest, Profile.CREATOR);
+        InterestStore.getInstance().getInterestList().add(this);
     }
 
     public static final Creator<Interest> CREATOR = new Creator<Interest>() {

@@ -39,5 +39,6 @@
     <string name="noOfConnections">12</string>
     <string name="title_activity_other_user_profile">OtherUserProfile</string>
     <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>string>
-    <string name="connect">Connect</string>string>
+    <string name="connect">Connect</string>
+    <string name="search_hint">Search</string>string>
 </resources>

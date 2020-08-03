@@ -8,6 +8,7 @@ public class TestUsers {
     Interest cricket = new Interest("Cricket");
     Interest tennis = new Interest("Tennis");
 
+
     Profile user1 = new Profile("Matt", "iOS", "Manchester", "Salford");
     Profile user2 = new Profile("Sam", "Manager", "London", "Surrey");
 
@@ -17,6 +18,7 @@ public class TestUsers {
 
         user1.addInterest(football);
         user1.addInterest(tennis);
+
 
 
         user2.addInterest(cricket);
