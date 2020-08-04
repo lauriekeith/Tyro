@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -24,6 +25,8 @@ import java.util.Set;
 
 public class SearchUsersActivity extends AppCompatActivity {
 
+    List<Profile> users = new TestUsers().getUsers();
+
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +37,7 @@ public class SearchUsersActivity extends AppCompatActivity {
 
         Interest interest = new Interest("Football");
         Interest interest2 = new Interest("Foosall");
+        Interest interest3 = new Interest("Cricket");
         Set<Interest> allInterests = InterestStore.getInstance().getInterestList();
 
 
@@ -48,6 +52,17 @@ public class SearchUsersActivity extends AppCompatActivity {
         listView.setAdapter(adapter);
         listView.setVisibility(View.INVISIBLE);
 
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                String item = adapter.getItem(i);
+                Interest clickedInterest = new Interest(item);
+                Intent intent = new Intent(SearchUsersActivity.this, InterestTagUsers.class);
+                intent.putExtra("interest", clickedInterest);
+                startActivity(intent);
+
+            }
+        });
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
             @Override
