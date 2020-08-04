@@ -4,12 +4,16 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 
@@ -35,6 +39,10 @@ public class OtherUserProfile extends AppCompatActivity {
         if (intent.hasExtra("profile")) {
             testingProfile = intent.getParcelableExtra("profile");
         }
+
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav.setOnNavigationItemSelectedListener(navListener);
+//        bottomNav.setSelectedItemId(R.id.navigation_connection_requests);
 
         // set up text view for name on the profile
         TextView profileName = (TextView) findViewById(R.id.profileName);
@@ -193,4 +201,30 @@ public class OtherUserProfile extends AppCompatActivity {
                     }
                 });
     }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    Intent intent;
+                    switch (item.getItemId()){
+                        case R.id.navigation_home: //TODO decide what home is
+                            break;
+
+                        case R.id.navigation_connection_requests:
+                            intent = new Intent(OtherUserProfile.this, ConnectionRequests.class);
+                            startActivity(intent);
+                            break;
+
+                        case R.id.navigation_profile_page: //do nothing, already there
+                            intent = new Intent(OtherUserProfile.this, ProfileActivity.class);
+                            startActivity(intent);
+                            break;
+
+                        case R.id.navigation_car_sharing: //TODO when car sharing implimented
+                            break;
+                    }
+                    return true;
+                }
+            };
 }

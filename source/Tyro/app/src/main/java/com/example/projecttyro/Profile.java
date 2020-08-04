@@ -59,8 +59,11 @@ public class Profile implements Parcelable {
         in.readTypedList(interests, Interest.CREATOR);
         connections = new ArrayList<>();
         in.readTypedList(connections, Profile.CREATOR);
+
+        //TODO doesnt seem to be working right... is this correct?
         pendingConnections = new ArrayList<>();
         in.readTypedList(pendingConnections, Profile.CREATOR);
+
         in.readMap(hidingInfo, UserInfo.class.getClassLoader());
         byte tmpCarSharing = in.readByte();
         carSharing = tmpCarSharing == 0 ? null : tmpCarSharing == 1;
@@ -160,9 +163,11 @@ public class Profile implements Parcelable {
     public int getNumberOfRequests(){return numberOfRequests;}
 
     //adds user to requests list
-    public void requestToConnect(Profile requester){
-        pendingConnections.add(requester);
-        numberOfRequests++;
+    public void requestToConnect(Profile requester) {
+        if (!connections.contains(requester) && !pendingConnections.contains(requester)) {
+            pendingConnections.add(requester);
+            numberOfRequests++;
+        }
     }
 
     //removes user from request list to display on pop up

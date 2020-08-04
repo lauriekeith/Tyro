@@ -3,12 +3,15 @@ package com.example.projecttyro;
 import android.content.Intent;
 import android.os.Bundle;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -23,6 +26,7 @@ import java.util.List;
 public class ConnectionRequests extends AppCompatActivity {
     // sets up a dummy profile for testing, this will be removed during roll out
     protected Profile testingProfile = new Profile("Sam", "Tester", "London", "Birmingham");
+    //TODO remove once parcelable connections fixed
     protected Profile requesterProfile = new Profile("Grant", "Debugger", "Halifax", "Glasgow");
     protected Profile requesterProfile2 = new Profile("Hugh", "Tester", "Cardiff", "London");
     protected Profile requesterProfile3 = new Profile("Sarah", "HR Consultant", "Manchester", "Radbroke");
@@ -33,13 +37,24 @@ public class ConnectionRequests extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_connection_requests);
 
+        Intent intent = getIntent();
+        /* If first time loading, no extras so will be working with test data */
+        if (intent.hasExtra("profile")) {
+            testingProfile = intent.getParcelableExtra("profile");
+        }
+
         testingProfile.requestToConnect(requesterProfile);
         testingProfile.requestToConnect(requesterProfile2);
         testingProfile.requestToConnect(requesterProfile3);
         testingProfile.requestToConnect(requesterProfile4);
 
+
         //set up a table layout
         final TableLayout tableLayout = findViewById(R.id.connectionRequestTable);
+
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav.setOnNavigationItemSelectedListener(navListener);
+        bottomNav.setSelectedItemId(R.id.navigation_connection_requests);
 
         //for loop to dynamically add requests -- will never be null
         for (int index = 0; index < testingProfile.getNumberOfRequests(); index ++) {
@@ -96,4 +111,28 @@ public class ConnectionRequests extends AppCompatActivity {
 
         }
     }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    switch (item.getItemId()){
+                        case R.id.navigation_home: //TODO decide what home is
+                            break;
+
+                        case R.id.navigation_profile_page:
+                            Intent intent = new Intent(ConnectionRequests.this, ProfileActivity.class);
+                            intent.putExtra("profile", testingProfile);
+                            startActivity(intent);
+                            break;
+
+                        case R.id.navigation_connection_requests: //do nothing, already there
+                            break;
+
+                        case R.id.navigation_car_sharing: //TODO when car sharing implimented
+                            break;
+                    }
+                    return true;
+                }
+            };
 }
