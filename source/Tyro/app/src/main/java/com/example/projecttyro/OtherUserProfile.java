@@ -4,12 +4,16 @@ import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 
@@ -35,6 +39,10 @@ public class OtherUserProfile extends AppCompatActivity {
         if (intent.hasExtra("profile")) {
             testingProfile = intent.getParcelableExtra("profile");
         }
+
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav.setOnNavigationItemSelectedListener(navListener);
+//        bottomNav.setSelectedItemId(R.id.navigation_connection_requests);
 
         // set up text view for name on the profile
         TextView profileName = (TextView) findViewById(R.id.profileName);
@@ -155,6 +163,20 @@ public class OtherUserProfile extends AppCompatActivity {
         else profilePicture.setImageResource(R.drawable.ic_default_profile_picture);
 
         final Button makeConnection = findViewById(R.id.makeConnection);
+
+        //if user has a connection
+        if (userProfile.hasConnection(testingProfile)){
+            makeConnection.setText("Disconnect");
+
+        }
+        //else if requested say this
+        else if (testingProfile.hasRequestFrom(userProfile)){
+            makeConnection.setText("Requested");
+        }
+        //else say connect
+        else{
+            makeConnection.setText("Connect");
+        }
         makeConnection.setOnClickListener(
                 new View.OnClickListener() {
                     public void onClick(View v) {
@@ -165,13 +187,44 @@ public class OtherUserProfile extends AppCompatActivity {
                             makeConnection.setText("Connect");
 
                         }
+                        //else if requested and pressed, remove request
+                        else if (testingProfile.hasRequestFrom(userProfile)){
+                            testingProfile.declineRequest(userProfile);
+                            makeConnection.setText("Connect");
+                        }
                         //else make connection
                         else{
-                            userProfile.connect(testingProfile);
-                            makeConnection.setText("Disconnect");
+                            userProfile.requestToConnect(testingProfile);
+                            makeConnection.setText("Requested");
                         }
                         connectionsNumber.setText(Integer.toString(testingProfile.getNumberOfConnections()));
                     }
                 });
     }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    Intent intent;
+                    switch (item.getItemId()){
+                        case R.id.navigation_home: //TODO decide what home is
+                            break;
+
+                        case R.id.navigation_connection_requests:
+                            intent = new Intent(OtherUserProfile.this, ConnectionRequests.class);
+                            startActivity(intent);
+                            break;
+
+                        case R.id.navigation_profile_page: //do nothing, already there
+                            intent = new Intent(OtherUserProfile.this, ProfileActivity.class);
+                            startActivity(intent);
+                            break;
+
+                        case R.id.navigation_car_sharing: //TODO when car sharing implimented
+                            break;
+                    }
+                    return true;
+                }
+            };
 }

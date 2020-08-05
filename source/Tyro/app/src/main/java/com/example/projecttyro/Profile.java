@@ -29,6 +29,7 @@ public class Profile implements Parcelable {
 
     private List<Interest> interests = new ArrayList<>();
     private List<Profile> connections;
+    private List<Profile> pendingConnections;
     private Map<UserInfo, Boolean> hidingInfo = new HashMap<>();
     private String homeLocation;
     private String workLocation;
@@ -46,6 +47,7 @@ public class Profile implements Parcelable {
     private String profilePicture;
     private Boolean carSharing;
     private int numberOfConnections;
+    private int numberOfRequests;
 
     /* How a profile object is created when it is exchanged between activities */
     protected Profile(Parcel in) {
@@ -57,6 +59,11 @@ public class Profile implements Parcelable {
         in.readTypedList(interests, Interest.CREATOR);
         connections = new ArrayList<>();
         in.readTypedList(connections, Profile.CREATOR);
+
+        //TODO doesnt seem to be working right... is this correct?
+        pendingConnections = new ArrayList<>();
+        in.readTypedList(pendingConnections, Profile.CREATOR);
+
         in.readMap(hidingInfo, UserInfo.class.getClassLoader());
         byte tmpCarSharing = in.readByte();
         carSharing = tmpCarSharing == 0 ? null : tmpCarSharing == 1;
@@ -75,7 +82,9 @@ public class Profile implements Parcelable {
         profilePicture = "default.png";
         addedProfilePicture = false;
         numberOfConnections = 0;
+        numberOfRequests = 0;
         connections = new ArrayList<Profile>();
+        pendingConnections = new ArrayList<Profile>();
     }
     public Profile(String nameOfUser, String jobTitle, String homeLocation, String workLocation) {
 
@@ -88,7 +97,9 @@ public class Profile implements Parcelable {
         addedProfilePicture = false;
         carSharing = true;
         numberOfConnections = 0;
+        numberOfRequests = 0;
         connections = new ArrayList<Profile>();
+        pendingConnections = new ArrayList<Profile>();
         hidingInfo = getDefaultPermissions();
     }
 
@@ -149,8 +160,42 @@ public class Profile implements Parcelable {
         return numberOfConnections;
     }
 
+    public int getNumberOfRequests(){return numberOfRequests;}
+
+    //adds user to requests list
+    public void requestToConnect(Profile requester) {
+        if (!connections.contains(requester) && !pendingConnections.contains(requester)) {
+            pendingConnections.add(requester);
+            numberOfRequests++;
+        }
+    }
+
+    //removes user from request list to display on pop up
+    public Profile getNextRequest(int index){
+        if (numberOfRequests > index){
+            return pendingConnections.get(index);
+        }
+        else
+            return null;
+    }
+
+    public boolean hasRequestFrom(Profile otherUser){
+        return (pendingConnections.contains(otherUser));
+    }
+
+    public void acceptRequest(Profile otherUser){
+        pendingConnections.remove(otherUser);
+        numberOfRequests --;
+        connect(otherUser);
+    }
+
+    public void declineRequest(Profile otherUser){
+        pendingConnections.remove(otherUser);
+        numberOfRequests --;
+    }
+
     //connects both users on both ends in one call
-    public void connect(Profile otherUser){
+    private void connect(Profile otherUser){
         addConnection(otherUser);
         otherUser.addConnection(this);
     }

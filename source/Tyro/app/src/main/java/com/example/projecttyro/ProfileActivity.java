@@ -3,6 +3,7 @@ package com.example.projecttyro;
 import android.content.Intent;
 import android.graphics.BitmapFactory;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -10,7 +11,10 @@ import android.widget.LinearLayout;
 import android.widget.ScrollView;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.List;
 
@@ -24,6 +28,10 @@ public class ProfileActivity extends AppCompatActivity {
 
     // sets up a dummy profile for testing, this will be removed during roll out
     protected Profile testingProfile = new Profile("Sam", "Tester", "London", "Birmingham");
+//    protected Profile requesterProfile = new Profile("Grant", "Debugger", "Halifax", "Glasgow");
+//    protected Profile requesterProfile2 = new Profile("Hugh", "Tester", "Cardiff", "London");
+//    protected Profile requesterProfile3 = new Profile("Sarah", "HR Consultant", "Manchester", "Radbroke");
+//    protected Profile requesterProfile4 = new Profile("Amelia", "Cyber Security", "Shrewbury", "Manchester");
 
     public void onClick(Button button, final Interest interest) {
         button.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +53,16 @@ public class ProfileActivity extends AppCompatActivity {
         if (intent.hasExtra("profile")) {
             testingProfile = intent.getParcelableExtra("profile");
         }
+
+        //dummy connections
+//        testingProfile.requestToConnect(requesterProfile);
+//        testingProfile.requestToConnect(requesterProfile2);
+//        testingProfile.requestToConnect(requesterProfile3);
+//        testingProfile.requestToConnect(requesterProfile4);
+
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav.setOnNavigationItemSelectedListener(navListener);
+        bottomNav.setSelectedItemId(R.id.navigation_profile_page);
 
 
         // set up text view for name on the profile
@@ -128,4 +146,27 @@ public class ProfileActivity extends AppCompatActivity {
                     }
                 });
     }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    switch (item.getItemId()){
+                        case R.id.navigation_home: //TODO decide what home is
+                            break;
+
+                        case R.id.navigation_connection_requests:
+                            Intent intent = new Intent(ProfileActivity.this, ConnectionRequests.class);
+                            startActivity(intent);
+                            break;
+
+                        case R.id.navigation_profile_page: //do nothing, already there
+                            break;
+
+                        case R.id.navigation_car_sharing: //TODO when car sharing implimented
+                            break;
+                    }
+                    return true;
+                }
+            };
 }
