@@ -42,15 +42,17 @@
         <activity
             android:name=".EditProfileActivity"
             android:label="@string/title_activity_edit_profile"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
         <activity
             android:name=".InterestPopup"
             android:label="@string/title_activity_interest_popup"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
         <activity
             android:name=".InterestTagUsers"
             android:label="@string/title_activity_interest_tag"
-<<<<<<< HEAD
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
 
@@ -74,9 +76,6 @@
                 android:resource="@xml/searchable"/>
         </activity>
 
-=======
-            android:theme="@style/AppTheme.NoActionBar"></activity>
->>>>>>> 2d0c86db3522e9bb5ea3d0fcb3b4a3d49ff9d3d2
     </application>
 
 </manifest>
