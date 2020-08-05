@@ -154,7 +154,6 @@ public class ProfileActivity extends AppCompatActivity {
                     switch (item.getItemId()){
                         case R.id.navigation_home: //TODO decide what home is
                             Intent intent1 = new Intent(ProfileActivity.this, SearchUsersActivity.class);
-                            intent1.putExtra("profile", testingProfile);
                             startActivity(intent1);
                             break;
 

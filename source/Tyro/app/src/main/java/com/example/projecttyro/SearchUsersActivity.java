@@ -3,6 +3,7 @@ package com.example.projecttyro;
 import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
@@ -16,8 +17,11 @@ import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,7 +44,9 @@ public class SearchUsersActivity extends AppCompatActivity {
         Interest interest3 = new Interest("Cricket");
         Set<Interest> allInterests = InterestStore.getInstance().getInterestList();
 
-
+        BottomNavigationView bottomNav = findViewById(R.id.bottom_navigation);
+        bottomNav.setOnNavigationItemSelectedListener(navListener);
+        bottomNav.setSelectedItemId(R.id.navigation_home);
 
         final List<String> list = new ArrayList<>();
         for (Interest interest1: allInterests) {
@@ -91,6 +97,33 @@ public class SearchUsersActivity extends AppCompatActivity {
 
 
     }
+
+    private BottomNavigationView.OnNavigationItemSelectedListener navListener =
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    Intent intent;
+                    switch (item.getItemId()){
+                        case R.id.navigation_home:
+                            //do noting, already there
+                            break;
+
+                        case R.id.navigation_connection_requests:
+                            intent = new Intent(SearchUsersActivity.this, ConnectionRequests.class);
+                            startActivity(intent);
+                            break;
+
+                        case R.id.navigation_profile_page: //do nothing, already there
+                            intent = new Intent(SearchUsersActivity.this, ProfileActivity.class);
+                            startActivity(intent);
+                            break;
+
+                        case R.id.navigation_car_sharing: //TODO when car sharing implimented
+                            break;
+                    }
+                    return true;
+                }
+            };
 
 }
 
