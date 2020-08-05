@@ -43,6 +43,7 @@ public class ConnectionRequests extends AppCompatActivity {
             testingProfile = intent.getParcelableExtra("profile");
         }
 
+        assert testingProfile != null;
         testingProfile.requestToConnect(requesterProfile);
         testingProfile.requestToConnect(requesterProfile2);
         testingProfile.requestToConnect(requesterProfile3);
@@ -118,6 +119,9 @@ public class ConnectionRequests extends AppCompatActivity {
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     switch (item.getItemId()){
                         case R.id.navigation_home: //TODO decide what home is
+                            Intent intent1 = new Intent(ConnectionRequests.this, SearchUsersActivity.class);
+                            intent1.putExtra("profile", testingProfile);
+                            startActivity(intent1);
                             break;
 
                         case R.id.navigation_profile_page:

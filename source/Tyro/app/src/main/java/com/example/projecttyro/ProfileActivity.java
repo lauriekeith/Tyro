@@ -153,10 +153,14 @@ public class ProfileActivity extends AppCompatActivity {
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                     switch (item.getItemId()){
                         case R.id.navigation_home: //TODO decide what home is
+                            Intent intent1 = new Intent(ProfileActivity.this, SearchUsersActivity.class);
+                            intent1.putExtra("profile", testingProfile);
+                            startActivity(intent1);
                             break;
 
                         case R.id.navigation_connection_requests:
                             Intent intent = new Intent(ProfileActivity.this, ConnectionRequests.class);
+                            intent.putExtra("profile", testingProfile);
                             startActivity(intent);
                             break;
 

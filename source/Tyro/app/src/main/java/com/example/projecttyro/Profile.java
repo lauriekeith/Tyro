@@ -27,7 +27,7 @@ public class Profile implements Parcelable {
         }
     };
 
-    private List<Interest> interests = new ArrayList<>();
+    private List<Interest> interests;
     private List<Profile> connections;
     private List<Profile> pendingConnections;
     private Map<UserInfo, Boolean> hidingInfo = new HashMap<>();
@@ -67,6 +67,8 @@ public class Profile implements Parcelable {
         in.readMap(hidingInfo, UserInfo.class.getClassLoader());
         byte tmpCarSharing = in.readByte();
         carSharing = tmpCarSharing == 0 ? null : tmpCarSharing == 1;
+        numberOfConnections = in.readInt();
+        numberOfRequests = in.readInt();
         addedProfilePicture = false;
         profilePicture = "default.png";
     }
@@ -117,8 +119,11 @@ public class Profile implements Parcelable {
         parcel.writeString(workLocation);
         parcel.writeTypedList(interests);
         parcel.writeTypedList(connections);
+        parcel.writeTypedList(pendingConnections);
         parcel.writeMap(hidingInfo);
         parcel.writeByte((byte) (carSharing == null ? 0 : carSharing ? 1 : 2));
+        parcel.writeInt(numberOfConnections);
+        parcel.writeInt(numberOfRequests);
     }
 
     private Map<UserInfo, Boolean> getDefaultPermissions() {
