@@ -7,6 +7,19 @@
     android:layout_height="match_parent">
 
 
+    <ListView
+        android:id="@+id/interestsView"
+        android:layout_width="341dp"
+        android:layout_height="218dp"
+        android:layout_below="@id/addInterestField"
+        android:divider="#ad5"
+        android:dividerHeight="2dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.684" />
+
     <EditText
         android:id="@+id/addInterestField"
         android:layout_width="189dp"
