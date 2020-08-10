@@ -43,4 +43,5 @@
     <string name="search_hint">Search</string>string>
     <string name="title_activity_connection_requests">ConnectionRequests</string>string>
     <string name="connectionRequestsTitle">Connection Requests</string>
+    <string name="title_activity_car_sharing">Car Sharing</string>
 </resources>
