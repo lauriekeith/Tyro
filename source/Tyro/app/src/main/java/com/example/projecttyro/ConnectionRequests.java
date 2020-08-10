@@ -125,7 +125,7 @@ public class ConnectionRequests extends AppCompatActivity {
 
                         case R.id.navigation_profile_page:
                             Intent intent = new Intent(ConnectionRequests.this, ProfileActivity.class);
-                            intent.putExtra("profile", testingProfile);
+//                            intent.putExtra("profile", testingProfile);
                             startActivity(intent);
                             break;
 
