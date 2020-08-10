@@ -33,6 +33,7 @@ public class Profile implements Parcelable {
     private Map<UserInfo, Boolean> hidingInfo = new HashMap<>();
     private String homeLocation;
     private String workLocation;
+    private String postCode;
 
 
 
@@ -285,5 +286,11 @@ public class Profile implements Parcelable {
         carSharing = setStatus;
     }
 
+    public void setPostCode(String postCode) {
+        this.postCode = postCode;
+    }
 
+    public String getPostCode() {
+        return postCode;
+    }
 }
