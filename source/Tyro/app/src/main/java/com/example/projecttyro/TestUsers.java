@@ -28,6 +28,7 @@ public class TestUsers {
         user2.setPostCode("SM14DE");
 
         user3.setPostCode("CR78HQ");
+        user3.setCarSharing(false);
 
         user4.setPostCode("Sw198UG");
 

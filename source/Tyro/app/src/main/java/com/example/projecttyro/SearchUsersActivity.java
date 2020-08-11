@@ -119,6 +119,8 @@ public class SearchUsersActivity extends AppCompatActivity {
                             break;
 
                         case R.id.navigation_car_sharing: //TODO when car sharing implimented
+                            Intent intent2 = new Intent(SearchUsersActivity.this, CarSharing.class);
+                            startActivity(intent2);
                             break;
                     }
                     return true;

@@ -18,7 +18,7 @@ public class NetworkInfo extends AsyncTask<String, Void, Integer> {
     protected Integer doInBackground(String... strings) {
 
         try {
-        URL url = new URL("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=SM53AY&destinations=" + strings[0] + "&key=AIzaSyA5tBJ-PDV4dzFOsSvSHaqECs8ehpJeAqA");
+        URL url = new URL("https://maps.googleapis.com/maps/api/distancematrix/json?units=imperial&origins=" + strings[0] + "&destinations=" + strings[1] + "&key=AIzaSyA5tBJ-PDV4dzFOsSvSHaqECs8ehpJeAqA");
         HttpsURLConnection connection = (HttpsURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
         connection.setRequestProperty("Content-Type", "application/json; utf-8");

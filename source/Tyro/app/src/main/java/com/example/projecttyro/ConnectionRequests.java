@@ -133,6 +133,8 @@ public class ConnectionRequests extends AppCompatActivity {
                             break;
 
                         case R.id.navigation_car_sharing: //TODO when car sharing implimented
+                            Intent intent2 = new Intent(ConnectionRequests.this, CarSharing.class);
+                            startActivity(intent2);
                             break;
                     }
                     return true;

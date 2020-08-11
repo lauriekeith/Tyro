@@ -151,14 +151,15 @@ public class ProfileActivity extends AppCompatActivity {
             new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
                 public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    Intent intent;
                     switch (item.getItemId()){
                         case R.id.navigation_home: //TODO decide what home is
-                            Intent intent1 = new Intent(ProfileActivity.this, SearchUsersActivity.class);
-                            startActivity(intent1);
+                            intent = new Intent(ProfileActivity.this, SearchUsersActivity.class);
+                            startActivity(intent);
                             break;
 
                         case R.id.navigation_connection_requests:
-                            Intent intent = new Intent(ProfileActivity.this, ConnectionRequests.class);
+                            intent = new Intent(ProfileActivity.this, ConnectionRequests.class);
                             intent.putExtra("profile", testingProfile);
                             startActivity(intent);
                             break;
@@ -167,6 +168,8 @@ public class ProfileActivity extends AppCompatActivity {
                             break;
 
                         case R.id.navigation_car_sharing: //TODO when car sharing implimented
+                            intent = new Intent(ProfileActivity.this, CarSharing.class);
+                            startActivity(intent);
                             break;
                     }
                     return true;
