@@ -56,13 +56,14 @@ public class Profile implements Parcelable {
         jobTitle = in.readString();
         homeLocation = in.readString();
         workLocation = in.readString();
-        interests = new ArrayList<>();
+        interests = new ArrayList<Interest>();
         in.readTypedList(interests, Interest.CREATOR);
-        connections = new ArrayList<>();
+
+        connections = new ArrayList<Profile>();
         in.readTypedList(connections, Profile.CREATOR);
 
         //TODO doesnt seem to be working right... is this correct?
-        pendingConnections = new ArrayList<>();
+        pendingConnections = new ArrayList<Profile>();
         in.readTypedList(pendingConnections, Profile.CREATOR);
 
         in.readMap(hidingInfo, UserInfo.class.getClassLoader());
@@ -173,6 +174,13 @@ public class Profile implements Parcelable {
         if (!connections.contains(requester) && !pendingConnections.contains(requester)) {
             pendingConnections.add(requester);
             numberOfRequests++;
+        }
+    }
+
+    public void removeConnectionRequest(Profile requester){
+        if (pendingConnections.contains(requester)) {
+            pendingConnections.remove(requester);
+            numberOfRequests--;
         }
     }
 

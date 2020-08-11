@@ -34,6 +34,24 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.045" />
 
+    <Button
+        android:id="@+id/recommendedConnectionsButton"
+        android:layout_width="343dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="584dp"
+        android:background="@drawable/edit_text_border"
+        android:ellipsize="none"
+        android:fontFamily="sans-serif"
+        android:text="@string/recommendedConnectionsTitle"
+        android:textAllCaps="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="#FFFFFF"
+        android:textStyle="bold"
+        android:typeface="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
         android:layout_width="match_parent"

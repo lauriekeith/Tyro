@@ -48,6 +48,15 @@ public class SearchUsersActivity extends AppCompatActivity {
         bottomNav.setOnNavigationItemSelectedListener(navListener);
         bottomNav.setSelectedItemId(R.id.navigation_home);
 
+        Button recommendedConnectionButton = findViewById(R.id.recommendedConnectionsButton);
+        recommendedConnectionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(SearchUsersActivity.this, RecommendedConnections.class);
+                startActivity(intent);
+            }
+        });
+
         final List<String> list = new ArrayList<>();
         for (Interest interest1: allInterests) {
             list.add(interest1.toString());

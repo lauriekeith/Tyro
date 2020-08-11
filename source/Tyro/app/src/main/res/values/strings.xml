@@ -46,4 +46,6 @@
     <string name="title_activity_connection_requests">ConnectionRequests</string>string>
     <string name="connectionRequestsTitle">Connection Requests</string>
     <string name="title_activity_car_sharing">Car Sharing</string>
+    <string name="title_activity_recommended_connections">RecommendedConnections</string>
+    <string name="recommendedConnectionsTitle">Recommended Connections</string>
 </resources>
